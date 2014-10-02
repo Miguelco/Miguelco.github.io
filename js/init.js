@@ -1,62 +1,188 @@
+/*-----------------------------------------------------------------------------------
 /*
-	Aerial by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Init JS
+/*
+-----------------------------------------------------------------------------------*/
 
-(function() {
+ jQuery(document).ready(function($) {
 
-	skel.init({
-		reset: 'full',
-		breakpoints: {
-			'global': { range: '*', href: 'css/style.css', viewport: { scalable: false } },
-			'wide': { range: '-1680', href: 'css/style-wide.css' },
-			'normal': { range: '-1280', href: 'css/style-normal.css' },
-			'mobile': { range: '-736', href: 'css/style-mobile.css' },
-			'mobilep': { range: '-480', href: 'css/style-mobilep.css' }
-		}
+/*----------------------------------------------------*/
+/* FitText Settings
+------------------------------------------------------ */
+
+    setTimeout(function() {
+	   $('h1.responsive-headline').fitText(1, { minFontSize: '40px', maxFontSize: '90px' });
+	 }, 100);
+
+
+/*----------------------------------------------------*/
+/* Smooth Scrolling
+------------------------------------------------------ */
+
+   $('.smoothscroll').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash,
+	    $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 800, 'swing', function () {
+	        window.location.hash = target;
+	    });
 	});
 
-	// Events (JS).
-		
-		// Remove "loading" class once the page has fully loaded.
-			window.onload = function() {
-				document.body.className = '';
-			}
 
-		// Prevent scrolling on touch.
-			window.ontouchmove = function() {
-				return false;
-			}
+/*----------------------------------------------------*/
+/* Highlight the current section in the navigation bar
+------------------------------------------------------*/
 
-		// Fix scroll position on orientation change.
-			window.onorientationchange = function() {
-				document.body.scrollTop = 0;
-			}
+	var sections = $("section");
+	var navigation_links = $("#nav-wrap a");
 
-	/*
+	sections.waypoint({
 
-	// Events (jQuery).
-	// Aerial doesn't need jQuery, but if you're going to use it anyway remove the
-	// block of JS events above and use the jQuery-based ones below instead.
+      handler: function(event, direction) {
 
-		jQuery(window)
+		   var active_section;
 
-			// Remove "loading" class once the page has fully loaded.
-				.on('load', function() {
-					jQuery('body').removeClass('loading');
-				})
+			active_section = $(this);
+			if (direction === "up") active_section = active_section.prev();
 
-			// Prevent scrolling on touch.
-				.on('touchmove', function() {
-					return false;
-				})
+			var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
 
-			// Fix scroll position on orientation change.
-				.on('orientationchange', function() {
-					jQuery('body').scrollTop(0);
-				});
+         navigation_links.parent().removeClass("current");
+			active_link.parent().addClass("current");
 
-	*/
+		},
+		offset: '35%'
 
-})();
+	});
+
+
+/*----------------------------------------------------*/
+/*	Make sure that #header-background-image height is
+/* equal to the browser height.
+------------------------------------------------------ */
+
+   $('header').css({ 'height': $(window).height() });
+   $(window).on('resize', function() {
+
+        $('header').css({ 'height': $(window).height() });
+        $('body').css({ 'width': $(window).width() })
+   });
+
+
+/*----------------------------------------------------*/
+/*	Fade In/Out Primary Navigation
+------------------------------------------------------*/
+
+   $(window).on('scroll', function() {
+
+		var h = $('header').height();
+		var y = $(window).scrollTop();
+      var nav = $('#nav-wrap');
+
+	   if ( (y > h*.20) && (y < h) && ($(window).outerWidth() > 768 ) ) {
+	      nav.fadeOut('fast');
+	   }
+      else {
+         if (y < h*.20) {
+            nav.removeClass('opaque').fadeIn('fast');
+         }
+         else {
+            nav.addClass('opaque').fadeIn('fast');
+         }
+      }
+
+	});
+
+
+/*----------------------------------------------------*/
+/*	Modal Popup
+------------------------------------------------------*/
+
+    $('.item-wrap a').magnificPopup({
+
+       type:'inline',
+       fixedContentPos: false,
+       removalDelay: 200,
+       showCloseBtn: false,
+       mainClass: 'mfp-fade'
+
+    });
+
+    $(document).on('click', '.popup-modal-dismiss', function (e) {
+    		e.preventDefault();
+    		$.magnificPopup.close();
+    });
+
+
+/*----------------------------------------------------*/
+/*	Flexslider
+/*----------------------------------------------------*/
+   $('.flexslider').flexslider({
+      namespace: "flex-",
+      controlsContainer: ".flex-container",
+      animation: 'slide',
+      controlNav: true,
+      directionNav: false,
+      smoothHeight: true,
+      slideshowSpeed: 7000,
+      animationSpeed: 600,
+      randomize: false,
+   });
+
+/*----------------------------------------------------*/
+/*	contact form
+------------------------------------------------------*/
+
+   $('form#contactForm button.submit').click(function() {
+
+      $('#image-loader').fadeIn();
+
+      var contactName = $('#contactForm #contactName').val();
+      var contactEmail = $('#contactForm #contactEmail').val();
+      var contactSubject = $('#contactForm #contactSubject').val();
+      var contactMessage = $('#contactForm #contactMessage').val();
+
+      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
+               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
+
+      $.ajax({
+
+	      type: "POST",
+	      url: "inc/sendEmail.php",
+	      data: data,
+	      success: function(msg) {
+
+            // Message was sent
+            if (msg == 'OK') {
+               $('#image-loader').fadeOut();
+               $('#message-warning').hide();
+               $('#contactForm').fadeOut();
+               $('#message-success').fadeIn();   
+            }
+            // There was an error
+            else {
+               $('#image-loader').fadeOut();
+               $('#message-warning').html(msg);
+	            $('#message-warning').fadeIn();
+            }
+
+	      }
+
+      });
+      return false;
+   });
+
+
+});
+
+
+
+
+
+
+
+
