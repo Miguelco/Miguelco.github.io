@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>My Personal Website</title>
+		
+
+ 
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+		
+		
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+			<link rel="stylesheet" href= "css/bootstrap.min.css">
+			<link rel="stylesheet" href= "css/styles.css">
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body class="loading">
+	
+<p>Pellentesque habitant morbi tristique senectus 
+et netus et malesuada fames ac turpis egestas. 
+Vestibulum tortor quam, feugiat vitae, ultricies
+ eget, tempor sit amet, ante. Donec eu libero sit
+  amet quam egestas semper. Aenean ultricies mi 
+  vitae est. Mauris placerat eleifend leo. Quisque 
+  sit amet est et sapien ullamcorper pharetra.
+   Vestibulum erat wisi, condimentum sed, commodo 
+   vitae, ornare sit amet, wisi. Aenean fermentum,
+    elit eget tincidunt condimentum, eros ipsum 
+    rutrum orci, sagittis tempus lacus enim ac d
+    ui. Donec non enim in turpis pulvinar facil
+    isis. Ut felis. Praesent dapibus, neque id c
+    ursus faucibus, tortor neque egestas augue, 
+    eu vulputate magna eros eu erat. Aliquam era
+    t volutpat. Nam dui mi, tincidunt quis, ac
+    cumsan porttitor, facilisis luctus, metus</p>
+
+	<script>
+ 	 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ 	 ga('create', 'UA-55009934-1', 'auto');
+ 	 ga('send', 'pageview');
+  </script>
+  
+  
+  
+  
+  
+  
+  <!-- Button trigger modal 
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+Modal 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+       xdfhsdfghdfghdfgnh
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  -->
+  
+  
+<script>
+$(document).ready(function() {
+  $('a[href*=#]').each(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+    && location.hostname == this.hostname
+    && this.hash.replace(/#/,'') ) {
+      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+       if ($target) {
+         var targetOffset = $target.offset().top;
+         $(this).click(function() {
+           $('html, body').animate({scrollTop: targetOffset}, 400);
+           return false;
+         });
+      }
+    }
+  });
+});
+	</script>
+  
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Miguel Covarrubias</h1>
+						<p>   UC Davis &nbsp;&bull;&nbsp;   Computer Science & Engineering &nbsp;&bull;&nbsp;   Bay Area </p>
+						
+						<nav id="nav">
+							<ul>
+								<!-- <li><a href="#" title="Twiter"  class="icon fa-twitter"><span class="label">Twitter</span></a></li> -->
+								<li><a target="_blank" title ="Facebook" href="https://www.facebook.com/covarrubias.miguel" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a target="_blank" title = "LinkedIn" href="https://www.linkedin.com/profile/view?id=292023407" class="fa fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<!-- <li><a target="_blank" href="#" class="icon fa-github"> <span class="label">Github</span></a></li> -->		
+								<li><a  href="mailto:migcovarrubias@ucdavis.edu?Subject=Hello%20again" title = "About"class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						
+				                 <li><a  href="#aboutme" data-toggle = "modal" class="icon fa-user"><span>About Me</span></a> 
+
+							</ul>
+						</nav>
+						<img class="img img-responsive" src="images/menew.png" alt="" />
+		
+					</header>
+			
+		<div class = "modal fade" id = "aboutme" role = "dialog">
+			<div class = "modal-dialog">
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<h3> Contact Tech Site </h3>
+					</div>
+				</div>
+			</div>	
+		</div>
+ 
+						<!-- Contact -->
+							<article id="labout" class="panel">
+								<header>
+									<h2>About Me</h2>
+								</header>
+
+                                <p class="indented" align="justify">
+                                    test
+                                </p>
+                                <p class="indented" align="justify">
+                                    test2
+                                </p>
+                                <p class="indented" align="justify">
+                                  test 3
+                                </p>
+
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; Miguel Covarrubias </span>
+					</footer>
+				
+			</div>
+
+		</div>
+		
+		
+		
+	</body>
+</html>
