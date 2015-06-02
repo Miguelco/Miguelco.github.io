@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
 <html>
-<h1>Request Headers</h1>
-	<?php
-	$GameDataInG = $_GET['g'];
-	$GameDataInP = $_POST['p'];
-	       
-	$curLog = file_get_contents('log.txt');
-	$curLog .= "G: ".$GameDataInG." -- P: ". $GameDataInP ."\n\n";
-	file_put_contents('log.txt', $curLog);
-       
-	?>
-</html>​
+<body>
+
+<?php
+echo "My first PHP script!";
+?>  
+
+</body>
+</html>
