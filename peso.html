@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<body>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+<script type="text/javascript">
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Peso Perdido'
+    },
+    xAxis: {
+        categories: [
+"7/3/17",
+"7/6/17",
+"7/9/17",
+"7/12/17",
+"7/15/17",
+"7/18/17",
+"7/21/17",
+"7/24/17",
+"7/27/17",
+"7/30/17",
+"8/2/17",
+"8/5/17",
+"8/8/17",
+"8/11/17",
+"8/14/17",
+"8/17/17",
+"8/20/17",
+"8/23/17",
+"8/26/17",
+"8/29/17",
+"9/1/17",
+"9/4/17",
+"9/7/17",
+"9/10/17",
+"9/13/17",
+"9/16/17",
+"9/19/17",
+"9/22/17",
+"9/25/17",
+"9/28/17",
+"10/1/17",
+"10/4/17"
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Peso (lb)'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Miguel',
+        data: [230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+230	,
+220	,
+220	,
+220	,
+220	,
+220	,
+220	,
+220	,
+220	,
+220	,
+220	,
+210	,
+210	,
+210	,
+210	,
+210	,
+210	,
+210	,
+210	,
+210	,
+210	,
+197	]
+    }, {
+        name: 'Nayeli',
+        data: [175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+175	,
+170	,
+170	,
+170	,
+170	,
+170	,
+170	,
+170	,
+170	,
+170	,
+170	,
+165	,
+165	,
+165	,
+165	,
+165	,
+165	,
+165	,
+165	,
+165	,
+165	,
+150	]
+}]
+});
+
+</script>
+
+</body>
+</html>
